@@ -11,6 +11,11 @@ impl fmt::Display for UnsupportedCharError {
 
 impl std::error::Error for UnsupportedCharError {}
 
+/// Converts a string literal into its Morse code representation.
+///
+/// # Errors
+/// 
+/// Returns [`UnsupportedCharError`] if any characters have no Morse code translation.
 pub fn string_to_morse(input: &str) -> Result<String, UnsupportedCharError> {
     let mut morse = String::new();
     
@@ -23,6 +28,12 @@ pub fn string_to_morse(input: &str) -> Result<String, UnsupportedCharError> {
     Ok(morse.trim_end().to_string())
 }
 
+
+/// Converts a single character into its Morse code representation.
+///
+/// # Errors
+/// 
+/// Returns [`UnsupportedCharError`] if `character` has no Morse code translation.
 pub fn char_to_morse(character: char) -> Result<&'static str, UnsupportedCharError> {
     match character {
         ' ' => Ok("/"),
