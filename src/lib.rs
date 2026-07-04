@@ -25,6 +25,7 @@ pub fn string_to_morse(input: &str) -> Result<String, UnsupportedCharError> {
 
 pub fn char_to_morse(character: char) -> Result<&'static str, UnsupportedCharError> {
     match character {
+        ' ' => Ok("/"),
         'A' => Ok(".-"),
         'B' => Ok("-..."),
         'C' => Ok("-.-."),
@@ -61,7 +62,17 @@ pub fn char_to_morse(character: char) -> Result<&'static str, UnsupportedCharErr
         '7' => Ok("--..."),
         '8' => Ok("---.."),
         '9' => Ok("----."),
-        ' ' => Ok("/"),
+        '!' => Ok("-.-.--"),
+        '"' => Ok(".-..-."),
+        '(' => Ok("-.--."),
+        ')' => Ok("-.--.-"),
+        ',' => Ok("--..--"),
+        '-' => Ok("-....-"),
+        '.' => Ok(".-.-.-"),
+        '/' => Ok("-..-."),
+        ':' => Ok("---..."),
+        ';' => Ok("-.-.-."),
+        '\'' => Ok(".----."),
         other_character => Err(UnsupportedCharError{unsupported_character: other_character}),
     }
 }
