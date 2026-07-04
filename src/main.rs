@@ -1,4 +1,4 @@
-use std::{io, process, error::Error};
+use std::{io, process};
 use morse_code_translator::string_to_morse;
 
 fn main() {
@@ -19,7 +19,7 @@ fn main() {
     println!("{output}");
 }
 
-fn get_input() -> Result<String, Box<dyn Error>> {
+fn get_input() -> io::Result<String> {
     let mut input_string = String::new();
     io::stdin().read_line(&mut input_string)?;
     Ok(input_string.trim_end().to_string())
