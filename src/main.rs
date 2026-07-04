@@ -1,6 +1,4 @@
-use std::io;
-use std::error::Error;
-use std::process;
+use std::{io, process, error::Error};
 use morse_code_translator::string_to_morse;
 
 fn main() {

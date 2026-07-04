@@ -20,7 +20,7 @@ pub fn string_to_morse(input: &str) -> Result<String, UnsupportedCharError> {
         morse.push(' ');
     };
 
-    Ok(morse)
+    Ok(morse.trim_end().to_string())
 }
 
 pub fn char_to_morse(character: char) -> Result<&'static str, UnsupportedCharError> {
